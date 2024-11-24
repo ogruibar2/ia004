@@ -1,0 +1,32 @@
+Elemento,Modos de falla,Causa de la falla,"Severidad (SEV)
+Seguridad
+(1-5)","Severidad (SEV)
+Ambiente
+(1-5)","Severidad (SEV)
+Operación
+(1-5)","Detección
+(1-5)",Severidad (SEV),Estrategia,Frecuencia,"Tiempo de la estrategia
+(min/hr)",Puesto de trabajo,Tipo de Mantenimiento
+Banda,Banda desgastada,Tiempo de vida ,1.0,1.0,5.0,5.0,25.0,Inspeccione  que la banda no presente daños,2S,5 min,Operador,LILA
+Banda,Suciedad en banda,Exceso de suciedad,1.0,2.0,3.0,5.0,30.0,Limpie la banda de la columna con un trapo humedecido,2S,10 min,Operador,LILA
+Banda,Cables con ruptura,Exceso de suciedad,1.0,1.0,2.0,5.0,10.0,Limpie la cadena portacables con  un trapo humedecido,1M,15 min,Operador,LILA
+Reductor,Reductor no gira,Rodamientos dañados,1.0,1.0,5.0,5.0,25.0,Reemplace rodamientos del reductor,2A,240 min,Mecánico,PLAN
+Reductor,Reductor con ruido,Perdida de viscosidad de aceite,1.0,1.0,3.0,1.0,3.0,Realice análisis de aceite,1A,60 min,Mecánico,PLAN
+Reductor,Reductor con ruido,Componentes dañados,1.0,1.0,3.0,1.0,3.0,Realice análisis de vibración,6M,30 min,Mecánico,PLAN
+Reductor,Reductor sucio,Exceso de suciedad,1.0,1.0,2.0,5.0,10.0,Limpie el reductor exteriormente con un trapo,2S,5 min,Mecánico,PLAN
+Reductor,Reductor con manchas de aceite,Fuga de aceite,1.0,1.0,4.0,5.0,20.0,Inspeccione fugas de aceite existentes en el reductor,2S,5 min,Mecánico,PLAN
+Reductor,Reductor no gira,Rodamientos dañados,1.0,1.0,5.0,5.0,25.0,Reemplace rodamientos del reductor,2A,240 min,Mecánico,PLAN
+Reductor,Reductor con ruido,Perdida de viscosidad de aceite,1.0,1.0,3.0,1.0,3.0,Realice análisis de aceite,1A,60 min,Mecánico,PLAN
+Reductor,Reductor con ruido,Componentes dañados,1.0,1.0,3.0,1.0,3.0,Realice análisis de vibración,6M,30 min,Mecánico,PLAN
+Reductor,Reductor sucio,Exceso de suciedad,1.0,1.0,2.0,5.0,10.0,Limpie el reductor exteriormente con un trapo,2S,5 min,Mecánico,PLAN
+Reductor,Reductor con manchas de aceite,Fuga de aceite,1.0,1.0,4.0,5.0,20.0,Inspeccione fugas de aceite existentes en el reductor,2S,5 min,Mecánico,PLAN
+Motor,Motor no gira,Rodamiento dañado,1.0,1.0,4.0,5.0,20.0,Reemplace rodamientos del motor,1A,180 min,Mecánico,PLAN
+Motor,Motorreductor no gira,Motor aterrizado,1.0,1.0,4.0,1.0,4.0,Realice medición de la resistencia dieléctrica de las bobinas del estator,6M,30 min,Eléctrico,PLAN
+Motor,Motor con ruido,Rodamientos dañados,1.0,1.0,4.0,5.0,20.0,Realice análisis de vibración,6M,30 min,Mecánico,PLAN
+Motor,Motor sucio,Exceso de suciedad,1.0,1.0,3.0,5.0,15.0,Limpie la superficie del motor con un trapo,2S,5 min,Mecánico,PLAN
+Motor,Motor con ruido,Componente dañado,1.0,1.0,5.0,5.0,25.0,Inspeccione auditivamente que no presente ruidos anormales ,1M,5 min,Operador,LILA
+Polea,Polea dañada,Desgaste de polea,1.0,1.0,5.0,5.0,25.0,Inspeccione que la polea no presente juego con respecto a la flecha,6M,60 min,Operador,LILA
+Polea,Polea dañada,Rodamiento dañado,1.0,1.0,4.0,1.0,4.0,Inspeccione visualmente que la polea no presente desgaste en los dientes,1M,60 min,Operador,LILA
+Chumacera,Chumacera con ruido anormal,Falta de lubricación,1.0,1.0,3.0,5.0,15.0,"Lubrique la chumacera con 2 bombazos de grasa, al terminar elimine el exceso de grasa",1M,5 min,Operador,LILA
+Chumacera,Chumacera con ruido anormal,Chumacera dañada,1.0,1.0,4.0,5.0,20.0,"Inspeccione las condiciones de la chumacera, en caso de detectar desgaste Reemplace",6M,60 min,Mecánico,PLAN
+Ventosa,Ventosa con fuga,Fuga,1.0,1.0,5.0,5.0,25.0,Inspeccione  que la ventosa no se encuentre dañada,1M,5 min,Operador,LILA

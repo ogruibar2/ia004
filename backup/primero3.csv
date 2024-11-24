@@ -1,0 +1,30 @@
+﻿Elemento,Modos de falla,Causa de la falla,"Severidad (SEV)
+Seguridad
+(1-5)","Severidad (SEV)
+Ambiente
+(1-5)","Severidad (SEV)
+Operación
+(1-5)","Detección
+(1-5)",Severidad (SEV),Estrategia,Frecuencia,"Tiempo de la estrategia
+(min/hr)",Puesto de trabajo,Tipo de Mantenimiento
+Banda,,,,,,,,,,,,
+Reductor,,,,,,,,,,,,
+Reductor,,,,,,,,,,,,
+Motor,,,,,,,,,,,,
+Polea,,,,,,,,,,,,
+Chumacera,,,,,,,,,,,,
+Ventosa,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
