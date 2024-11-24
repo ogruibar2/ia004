@@ -44,6 +44,7 @@ def main():
     # Obtener archivo de entrada
     input_file = get_input_file()
     input_filename = os.path.basename(input_file)
+    print(f"archivo 'entrada/{input_filename}'")
     
     # Cargar el archivo de entrada
     df_input = pd.read_csv(input_file)
