@@ -1,0 +1,17 @@
+{
+    "default": {
+        "name": "Plantilla Predeterminada",
+        "description": "Plantilla b\u00e1sica para archivos CSV/XLSX",
+        "required_columns": [
+            "Elemento"
+        ],
+        "optional_columns": [],
+        "validation_rules": {
+            "Elemento": {
+                "type": "string",
+                "required": true,
+                "min_length": 1
+            }
+        }
+    }
+}
