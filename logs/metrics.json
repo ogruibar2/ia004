@@ -1,14 +1,42 @@
 {
     "total_predictions": 0,
-    "total_files_processed": 1,
+    "total_files_processed": 2,
     "processing_times": [],
-    "error_count": 0,
-    "last_execution": "2024-11-24T03:05:19.603326",
+    "error_count": 20,
+    "last_execution": "2025-01-02T12:14:35.180660",
     "model_usage": {},
     "memory_usage": [
         {
             "timestamp": "2024-11-24T03:05:15.308754",
             "memory_mb": 140.59375
+        },
+        {
+            "timestamp": "2024-12-17T13:27:25.651319",
+            "memory_mb": 72.70703125
+        },
+        {
+            "timestamp": "2024-12-17T17:30:46.745622",
+            "memory_mb": 140.64453125
+        },
+        {
+            "timestamp": "2024-12-17T17:35:02.286870",
+            "memory_mb": 92.58984375
+        },
+        {
+            "timestamp": "2024-12-17T17:36:10.744782",
+            "memory_mb": 92.3828125
+        },
+        {
+            "timestamp": "2024-12-17T17:42:20.829876",
+            "memory_mb": 92.34375
+        },
+        {
+            "timestamp": "2025-01-02T12:11:44.490663",
+            "memory_mb": 92.56640625
+        },
+        {
+            "timestamp": "2025-01-02T12:14:30.540447",
+            "memory_mb": 92.46484375
         }
     ]
 }
