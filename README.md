@@ -1,79 +1,107 @@
-# ia004
-pruebas
+# ProcesadorArchivos
 
+Aplicación de escritorio para procesamiento y predicción de datos basada en modelos de machine learning.
 
-Puntos de mejora identificados para la siguiente versión:
+## Estructura del Proyecto
 
-Mejoras de Interfaz:
+```
+ProcesadorArchivos/
+├── app.py                 # Aplicación principal (GUI)
+├── predict.py             # Módulo de predicción
+├── predictor.py           # Funciones core de predicción
+├── logger.py             # Sistema de logging
+├── config.py             # Manejo de configuración
+├── templates.py          # Sistema de plantillas
+├── config.json           # Archivo de configuración
+├── requirements.txt      # Dependencias del proyecto
+├── proceso.ico           # Icono de la aplicación
+│
+├── entrada/              # Directorio para archivos de entrada
+│   └── README.md        # Instrucciones para archivos de entrada
+│
+├── salida/              # Directorio para archivos procesados
+│   └── README.md        # Información sobre archivos de salida
+│
+├── modelos/             # Modelos entrenados
+│   ├── models.joblib    # Modelos de predicción
+│   └── encoders.joblib  # Encoders para procesamiento
+│
+├── logs/                # Archivos de registro
+│   ├── system.log      # Log del sistema
+│   ├── errors.log      # Log de errores
+│   └── dashboard.html  # Dashboard de actividad
+│
+├── templates/           # Plantillas para procesamiento
+│   └── templates.json  # Configuración de plantillas
+│
+└── entrenador/         # Datos de entrenamiento
+    └── entrenador001.csv  # Dataset de entrenamiento
+```
 
-Implementar tema oscuro/claro con selector
-Agregar barra de progreso durante el procesamiento
-Permitir arrastrar y soltar archivos (drag & drop)
-Agregar vista previa del contenido de los archivos
-Implementar filtros y búsqueda en las listas de archivos
-Agregar tooltips informativos en los botones
-Mejoras Funcionales:
+## Descripción de Componentes
 
-Procesamiento por lotes (selección múltiple de archivos)
-Procesamiento asíncrono para no bloquear la interfaz
-Cola de procesamiento con capacidad de pausar/reanudar
-Historial de archivos procesados con estadísticas
-Opción de auto-backup configurable
-Soporte para más formatos (JSON, XML, etc.)
-Configuración y Personalización:
+### Archivos Principales
 
-Archivo de configuración para preferencias del usuario
-Personalización de directorios de entrada/salida/backup
-Opciones de formato de salida configurables
-Guardado de configuraciones por perfil de usuario
-Atajos de teclado personalizables
-Seguridad y Validación:
+- **app.py**: Interfaz gráfica principal desarrollada con tkinter.
+- **predict.py**: Módulo que maneja la lógica de predicción.
+- **predictor.py**: Implementación de algoritmos de predicción.
+- **logger.py**: Sistema de logging y generación de dashboard.
+- **config.py**: Gestión de configuración de la aplicación.
+- **templates.py**: Sistema de plantillas para validación de datos.
 
-Validación más robusta de archivos de entrada
-Checksum de archivos para verificar integridad
-Registro de errores detallado
-Sistema de permisos básico
-Encriptación opcional de archivos sensibles
-Monitoreo y Logging:
+### Directorios
 
-Sistema de logging completo
-Estadísticas de uso y rendimiento
-Reportes de errores automáticos
-Dashboard con métricas de procesamiento
-Notificaciones de sistema configurables
-Mejoras Técnicas:
+- **entrada/**: Carpeta para colocar archivos CSV/XLSX a procesar.
+- **salida/**: Almacena los archivos procesados.
+- **modelos/**: Contiene los modelos entrenados y encoders.
+- **logs/**: Archivos de registro y dashboard.
+- **templates/**: Plantillas para diferentes tipos de archivos.
+- **entrenador/**: Datos utilizados para entrenamiento.
 
-Refactorización a arquitectura MVC
-Implementar patrones de diseño (Observer, Factory, etc.)
-Mejorar cobertura de pruebas unitarias
-Agregar pruebas de integración
-Documentación técnica completa
-Optimización de rendimiento
-Integración y Extensibilidad:
+## Requisitos del Sistema
 
-API REST para integración con otros sistemas
-Sistema de plugins para extensibilidad
-Integración con servicios en la nube
-Sincronización entre múltiples instancias
-Soporte para procesamiento distribuido
-Mantenimiento:
+- Python 3.12 o superior
+- Dependencias listadas en requirements.txt
 
-Sistema de actualización automática
-Backup automático de configuraciones
-Limpieza automática de archivos temporales
-Gestión de versiones de modelos
-Sistema de rollback para operaciones críticas
-Experiencia de Usuario:
+## Instalación
 
-Tutorial interactivo para nuevos usuarios
-Sistema de ayuda contextual
-Documentación de usuario mejorada
-Wizards para tareas complejas
-Feedback y sistema de reporte de bugs
-Internacionalización:
+1. Clonar o descargar el repositorio
+2. Crear un entorno virtual:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # En Linux/Mac
+   venv\Scripts\activate     # En Windows
+   ```
+3. Instalar dependencias:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Soporte multi-idioma
-Formatos de fecha/hora localizados
-Adaptación a diferentes zonas horarias
-Documentación en múltiples idiomas
-Estas mejoras permitirían una aplicación más robusta, escalable y amigable para el usuario, manteniendo la simplicidad de la versión actual pero agregando funcionalidades avanzadas para usuarios más experimentados.
+## Uso
+
+1. Ejecutar la aplicación:
+   ```bash
+   python app.py
+   ```
+2. Seleccionar archivos a procesar desde el botón "Seleccionar Archivos"
+3. Elegir una plantilla de procesamiento
+4. Hacer clic en "Procesar Archivos"
+5. Los resultados se guardarán en la carpeta "salida/"
+
+## Características
+
+- Interfaz gráfica intuitiva
+- Procesamiento por lotes
+- Sistema de plantillas personalizable
+- Validación de datos
+- Dashboard de actividad
+- Exportación en múltiples formatos (CSV, Excel, JSON)
+- Temas claro/oscuro
+- Registro detallado de operaciones
+
+## Mantenimiento
+
+- Los archivos de log se rotan automáticamente
+- El dashboard se actualiza en tiempo real
+- Las plantillas se pueden crear/editar desde la interfaz
+- La configuración se guarda automáticamente

@@ -1,4 +1,108 @@
-pandas
-joblib
-psutil
-pathlib
+# ====================================
+# DEPENDENCIAS DEL PROYECTO
+# ====================================
+
+# Librerías principales
+pandas==2.1.0
+numpy==1.24.0
+scikit-learn==1.5.2  # Versión específica para compatibilidad con modelos guardados
+joblib==1.3.0
+
+# Interfaz gráfica
+tk==8.6
+ttkthemes==3.2.2
+
+# Manejo de archivos Excel
+openpyxl==3.1.2
+xlrd==2.0.1
+
+# Utilidades
+psutil==5.9.0
+pathlib==1.0.1
+webbrowser==0.0.1
+
+# Desarrollo y testing
+pytest==7.4.0
+pytest-cov==4.1.0
+
+# ====================================
+# NOTAS IMPORTANTES
+# ====================================
+
+# ADVERTENCIA: No actualizar scikit-learn más allá de la versión 1.5.2
+# ya que los modelos guardados fueron entrenados con esta versión.
+# Para actualizar a una versión más reciente, será necesario reentrenar
+# los modelos.
+
+# ====================================
+# ESTRUCTURA DEL PROYECTO
+# ====================================
+
+'''
+ProcesadorArchivos/
+├── app.py                 # Aplicación principal (GUI)
+├── predict.py             # Módulo de predicción
+├── predictor.py           # Funciones core de predicción
+├── logger.py             # Sistema de logging
+├── config.py             # Manejo de configuración
+├── templates.py          # Sistema de plantillas
+├── config.json           # Archivo de configuración
+├── requirements.txt      # Dependencias del proyecto
+├── proceso.ico           # Icono de la aplicación
+│
+├── entrada/              # Directorio para archivos de entrada
+│   └── README.md        # Instrucciones para archivos de entrada
+│
+├── salida/              # Directorio para archivos procesados
+│   └── README.md        # Información sobre archivos de salida
+│
+├── modelos/             # Modelos entrenados
+│   ├── models.joblib    # Modelos de predicción
+│   └── encoders.joblib  # Encoders para procesamiento
+│
+├── logs/                # Archivos de registro
+│   ├── system.log      # Log del sistema
+│   ├── errors.log      # Log de errores
+│   └── dashboard.html  # Dashboard de actividad
+│
+├── templates/           # Plantillas para procesamiento
+│   └── templates.json  # Configuración de plantillas
+│
+└── entrenador/         # Datos de entrenamiento
+    └── entrenador001.csv  # Dataset de entrenamiento
+'''
+
+# ====================================
+# NOTAS DE INSTALACIÓN
+# ====================================
+
+# 1. Crear entorno virtual:
+#    python -m venv venv
+#    venv\Scripts\activate     # Windows
+#    source venv/bin/activate  # Linux/Mac
+
+# 2. Instalar dependencias:
+#    pip install -r requirements.txt
+
+# 3. Ejecutar la aplicación:
+#    python app.py
+
+# ====================================
+# REQUISITOS DEL SISTEMA
+# ====================================
+
+# - Python 3.12 o superior
+# - Sistema operativo: Windows/Linux/Mac
+# - RAM mínima: 4GB
+# - Espacio en disco: 500MB
+
+# ====================================
+# SOLUCIÓN DE PROBLEMAS
+# ====================================
+
+# Si aparece el error de versión de scikit-learn:
+# 1. Desinstalar la versión actual:
+#    pip uninstall scikit-learn
+# 2. Instalar la versión específica:
+#    pip install scikit-learn==1.5.2
+# 3. Reentrenar los modelos si es necesario
