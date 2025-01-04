@@ -1,9 +1,9 @@
 {
     "total_predictions": 0,
-    "total_files_processed": 7,
+    "total_files_processed": 8,
     "processing_times": [],
-    "error_count": 28,
-    "last_execution": "2025-01-03T11:02:08.624162",
+    "error_count": 41,
+    "last_execution": "2025-01-04T11:15:01.245812",
     "model_usage": {},
     "memory_usage": [
         {
@@ -65,6 +65,34 @@
         {
             "timestamp": "2025-01-03T11:02:06.179622",
             "memory_mb": 143.0703125
+        },
+        {
+            "timestamp": "2025-01-04T11:03:06.845704",
+            "memory_mb": 103.4765625
+        },
+        {
+            "timestamp": "2025-01-04T11:04:27.857660",
+            "memory_mb": 95.296875
+        },
+        {
+            "timestamp": "2025-01-04T11:07:53.881833",
+            "memory_mb": 168.92578125
+        },
+        {
+            "timestamp": "2025-01-04T11:10:13.809823",
+            "memory_mb": 142.1640625
+        },
+        {
+            "timestamp": "2025-01-04T11:11:27.957793",
+            "memory_mb": 140.49609375
+        },
+        {
+            "timestamp": "2025-01-04T11:12:38.982307",
+            "memory_mb": 141.22265625
+        },
+        {
+            "timestamp": "2025-01-04T11:14:59.728532",
+            "memory_mb": 140.86328125
         }
     ]
 }

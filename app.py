@@ -541,18 +541,27 @@ class FileProcessorApp:
         
         try:
             # Determinar la extensión del archivo
-            file_ext = os.path.splitext(selected_file)[1]
+            file_ext = os.path.splitext(selected_file)[1].lower()
+            
+            # Configurar los tipos de archivo según la extensión
+            if file_ext == '.csv':
+                filetypes = [("Archivos CSV", "*.csv")]
+            elif file_ext == '.xlsx':
+                filetypes = [("Archivos Excel", "*.xlsx")]
+            else:
+                filetypes = [("Todos los archivos", "*.*")]
             
             # Abrir diálogo para seleccionar dónde guardar el archivo
             save_path = filedialog.asksaveasfilename(
                 defaultextension=file_ext,
                 initialfile=selected_file,
-                filetypes=(("CSV files", "*.csv") if file_ext == '.csv' else ("Excel files", "*.xlsx"))
+                filetypes=filetypes
             )
             
             if save_path:
                 shutil.copy2(source_path, save_path)
                 messagebox.showinfo("Éxito", f"Archivo descargado exitosamente como:\n{save_path}")
+                
         except Exception as e:
             system_logger.log_error(e, f"Error downloading file: {source_path}")
             messagebox.showerror("Error", f"Error al descargar archivo: {str(e)}")

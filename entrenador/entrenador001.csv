@@ -1,30 +1,114 @@
-﻿Elemento,Modos_de_falla,Causa_de_la_falla,Seguridad,Ambiente,Operación,Detección,Severidad,Estrategia,Frecuencia,Tiempo,Puesto_de_trabajo,Tipo_de_Mantenimiento
-Banda,Banda desgastada,Tiempo de vida ,1,1,5,5,25,Inspeccione  que la banda no presente daños,2S,5 min,Operador,LILA
-Banda,Suciedad en banda,Exceso de suciedad,1,2,3,5,30,Limpie la banda de la columna con un trapo humedecido,2S,10 min,Operador,LILA
-Banda,Cables con ruptura,Exceso de suciedad,1,1,2,5,10,Limpie la cadena portacables con  un trapo humedecido,1M,15 min,Operador,LILA
-Reductor,Reductor no gira,Rodamientos dañados,1,1,5,5,25,Reemplace rodamientos del reductor,2A,240 min,Mecánico,PLAN
-Reductor,Reductor con ruido,Perdida de viscosidad de aceite,1,1,3,1,3,Realice análisis de aceite,1A,60 min,Mecánico,PLAN
-Reductor,Reductor con ruido,Componentes dañados,1,1,3,1,3,Realice análisis de vibración,6M,30 min,Mecánico,PLAN
-Reductor,Reductor sucio,Exceso de suciedad,1,1,2,5,10,Limpie el reductor exteriormente con un trapo,2S,5 min,Mecánico,PLAN
-Reductor,Reductor con manchas de aceite,Fuga de aceite,1,1,4,5,20,Inspeccione fugas de aceite existentes en el reductor,2S,5 min,Mecánico,PLAN
-Motor,Motor no gira,Rodamiento dañado,1,1,4,5,20,Reemplace rodamientos del motor,1A,180 min,Mecánico,PLAN
-Motor,Motorreductor no gira,Motor aterrizado,1,1,4,1,4,Realice medición de la resistencia dieléctrica de las bobinas del estator,6M,30 min,Eléctrico,PLAN
-Motor,Motor con ruido,Rodamientos dañados,1,1,4,5,20,Realice análisis de vibración,6M,30 min,Mecánico,PLAN
-Motor,Motor sucio,Exceso de suciedad,1,1,3,5,15,Limpie la superficie del motor con un trapo,2S,5 min,Mecánico,PLAN
-Motor,Motor con ruido,Componente dañado,1,1,5,5,25,Inspeccione auditivamente que no presente ruidos anormales ,1M,5 min,Operador,LILA
-Polea,Polea dañada,Desgaste de polea,1,1,5,5,25,Inspeccione que la polea no presente juego con respecto a la flecha,6M,60 min,Operador,LILA
-Polea,Polea dañada,Rodamiento dañado,1,1,4,1,4,Inspeccione visualmente que la polea no presente desgaste en los dientes,1M,60 min,Operador,LILA
-Chumacera,Chumacera con ruido anormal,Falta de lubricación,1,1,3,5,15,"Lubrique la chumacera con 2 bombazos de grasa, al terminar elimine el exceso de grasa",1M,5 min,Operador,LILA
-Chumacera,Chumacera con ruido anormal,Chumacera dañada,1,1,4,5,20,"Inspeccione las condiciones de la chumacera, en caso de detectar desgaste Reemplace",6M,60 min,Mecánico,PLAN
-Motoreductor,Motorreductor no gira,Rodamiento dañado,1,1,4,5,20,Reemplace rodamientos del motor,1A,180 min,Mecánico,PLAN
-Motoreductor,Motorreductor no gira,Motor aterrizado,1,1,4,1,4,Realice medición de la resistencia dieléctrica de las bobinas del estator,6M,30 min,Eléctrico,PLAN
-Motoreductor,Motorreductor con ruido,Rodamientos dañados,1,1,4,5,20,Realice análisis de vibración,6M,30 min,Mecánico,PLAN
-Motoreductor,Motorreductor sucio,Exceso de suciedad,1,1,3,5,15,Limpie la superficie del motorreductor con un trapo húmedo ,2S,5 min,Operador,LILA
-Unidad de accionamiento ,Motorreductor con ruido,Componente dañado,1,1,5,5,25,Inspeccione auditivamente que el motorreductor no presente ruidos anormales ,1M,5 min,Operador,LILA
-Buje,Buje dañado,Desgaste,1,1,4,5,4,Reemplace el buje ,1A,30 min,Mecánico,PLAN
-Sprocket,Sprocket dañado,Desgaste de sprocket,1,1,3,1,3,Inspeccione visualmente que no presente desgaste en los dientes,3M,60 min,Mecánico,PLAN
-Sprocket,Sprocket dañado,Desgaste de sprocket,1,1,3,1,3,"Inspeccione que no presente juego con respecto a la flecha, en caso de detectar desgaste remplace",3M,60 min,Mecánico,PLAN
-Sprocket,Sprocket dañado,Sprocket con Juego,1,1,3,1,3,Reapriete los opresores del sprocket,6M,120 min,Mecánico,PLAN
-Piston,Pistón no se mueve,Fuga de aire,1,1,5,5,25,Inspeccione auditivamente que el pistón no presente fugas en las conexiones,1M,5 min,Operador,LILA
-Valvula,Válvula no acciona,Fuga de aire,1,1,2,1,2,Inspeccione que la válvulas no presente fugas,1M,5 min,Operador,LILA
-Ventosa,Ventosa con fuga,Fuga,1,1,5,5,25,Inspeccione  que la ventosa no se encuentre dañada,1M,5 min,Operador,LILA
+﻿Elemento,Modos_de_falla,Causa_de_la_falla,Seguridad,Ambiente,Operación,Detección,Severidad,Estrategia,Frecuencia,Tiempo,Puesto_de_trabajo,Tipo_de_Mantenimiento,,,,,,,
+Engranes,Engranes dañados ,Desgaste,1,1,3,5,15,Inspeccione que el engrane no presente desgaste en dientes,1A,10 min,Mecánico,PLAN,,,,,,,
+Engranes,Engranes dañados ,Fatiga,1,1,3,5,15,Inspeccione que el engrane no se encuentren residuos de metal,1A,10 min,Mecánico,PLAN,,,,,,,
+Engranes,Engranes dañados ,Fractura de dientes,1,1,5,5,25,Reemplace el engrane,1A,120 min,Mecánico,PLAN,,,,,,,
+Engranes,Engranes dañados ,Falta de lubricacion ,1,1,1,1,1,Lubrique el engrane con grasa xxxxxx,1M,10 min,Operador,LILA,,,,,,,
+Eje/Flecha,Flecha dañada,Desgaste,1,1,5,5,25,Inspeccione que la flecha no presente desgaste ,6M,20 min,Mecánico,PLAN,,,,,,,
+Eje/Flecha,Flecha dañada,Deformacion,1,1,5,5,25,Inspeccione que en la fecha no existan deformaciones ,6M,20 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Pérdida de material en la superficie del rodillo.,Fricción constante con materiales abrasivos.,1,1,5,5,25,Inspección y reemplazo de rodillos desgastados,6M,20 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Reducción en el desempeño del equipo.,Lubricación inadecuada o ausente.,1,1,5,3,15,Usar lubricantes específicos para reducir la fricción y el desgaste.,1M,10 min,Operador,LILA,,,,,,,
+Rodillos ,Aparición de rayaduras o marcas irregulares.,Uso prolongado sin mantenimiento.,1,1,5,3,15,Inspecionar para detectar desgaste en etapas tempranas y sustituir rodillos afectados.,2S,5 min ,Operador,LILA,,,,,,,
+Rodillos ,Presencia de grietas visibles o roturas completas.,Sobrecargas mecánicas.,1,1,5,5,25,Sustituir rodillos con fisuras visibles o riesgo elevado de fractura.,3M,20 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Vibraciones o ruido inusual durante la operación.,Golpes o impactos externos.,1,1,5,5,25,Reemplazar por materiales de mayor resistencia mecánica o diseñados para soportar impactos.,6M,10 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Movimiento irregular o desviación del rodillo.,Instalación incorrecta o falta de ajustes precisos.,1,1,5,5,25,Inspeccionar y alinear los rodillos regularmente para evitar problemas de funcionamiento.,2S,5 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Desgaste desigual en la superficie del rodillo.,Deformaciones en el marco o soporte del rodillo.,1,1,5,3,15,Verificar la rigidez de los marcos y soportes para prevenir deformaciones.,1M,5 min ,Operador,LILA,,,,,,,
+Rodillos ,"Daños en otros componentes del sistema, como bandas transportadoras.",Desgaste desigual de los rodamientos.,1,1,3,3,9,Inspeccionar y alinear los rodillos regularmente para evitar desgaste en rodamientos.,1D,5 min ,Operador,LILA,,,,,,,
+Rodillos ,Ruido excesivo o rechinidos.,"Contaminación por polvo, suciedad o humedad.",1,1,3,3,9,Asegurar que los rodamientos estén libres de contaminantes y que se lubriquen adecuadamente.,2S,10 min ,Operador,LILA,,,,,,,
+Rodillos ,Aumento de la temperatura en la zona del rodamiento.,Sobrecargas o vibraciones excesivas.,1,1,3,5,15,"Reemplazar rodamientos con signos de desgaste o daño, como ruidos o bloqueos.",6M,20 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Movimiento lento o bloqueo completo del rodillo.,Lubricación insuficiente o contaminada.,1,1,5,3,15,Lubricar correctamente rodamientos.,2S,15 min ,Operador,LILA,,,,,,,
+Rodillos ,Exposición a cargas superiores a las especificaciones del diseño.,Rodillos curvados o aplanados.,1,1,3,3,9,Asegurarse de que los rodillos estén diseñados para soportar las cargas reales del sistema.,2S,10 min ,Operador,LILA,,,,,,,
+Rodillos ,Material estructural insuficientemente resistente.,Mal funcionamiento del sistema en el que operan.,1,1,5,5,25,Cambiar componentes afectados para restaurar la funcionalidad del equipo.,6M,60 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Temperaturas elevadas que reducen la resistencia del material.,Desgaste desigual en la superficie de contacto.,1,1,3,5,15,Cambiar componentes afectados para restaurar la funcionalidad del equipo.,6M,60 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Aparición de óxido o picaduras en la superficie del rodillo.,Exposición a ambientes húmedos o sustancias químicas corrosivas.,1,1,5,5,25,Aplicar pinturas o recubrimientos especiales resistentes a la corrosión.,6M,60 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Ruidos intermitentes o constantes durante la operación.,"Desgaste de componentes internos, como rodamientos.",1,1,3,5,15,Sustituir rodamientos defectuosos que generen ruido.,3M,30 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Aumento de vibraciones en el sistema.,Falta de balanceo adecuado del rodillo.,1,1,3,5,15,Verificar el balanceo para reducir vibraciones,3M,20 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Abolladuras o marcas profundas en el rodillo.,Colisión con otros equipos o materiales pesados.,1,1,3,5,15,Asegurar que los sistemas circundantes estén diseñados para evitar colisiones.,1A,20 min,Mecánico,PLAN,,,,,,,
+Rodillos ,Alteración en el desempeño y alineación.,Caída de objetos sobre el rodillo.,1,1,3,5,15,Instalar carcasas o barreras para proteger los rodillos de impactos directos.,1A,30 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Movimiento lento o errático de los actuadores.,"Partículas de suciedad, polvo o residuos atrapados bloquean el flujo del aire.",1,1,5,3,15,Desmontar la válvula y limpiar los conductos internos.,1M,20 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Flujo de aire reducido o bloqueado completamente.,Contaminación del aire comprimido con humedad o aceite.,1,1,5,3,15,Verificar que el suministro de aire comprimido esté libre de humedad y aceite.,1M,10 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Pérdida de presión en el sistema.,Sellos desgastados o dañados.,1,1,5,3,15,"Inspeccionar y reemplazar sellos, juntas y empaques desgastados o dañados.",3M,20 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Disminución en el rendimiento del actuador neumático.,Juntas mal ajustadas.,1,1,5,3,15,"Inspeccionar y reemplazar sellos, juntas y empaques desgastados o dañados.",3M,20 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Sonido de silbido o escape de aire.,Conexiones sueltas o mal instaladas.,1,1,5,3,15,Asegurar que las conexiones de tuberías y accesorios estén correctamente apretadas.,3M,30 min,Mecánico,PLAN,,,,,,,
+Válvulas ,No cambia de posición al recibir una señal eléctrica.,Bobinas quemadas por sobrecalentamiento o sobrevoltaje.,1,1,5,3,15,Verificar la alimentación eléctrica  para descartar problemas externos y  reemplazar bobinas quemadas o defectuosas.,6M,20 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Fallos intermitentes en el control de la válvula.,Contaminación en las partes móviles internas del solenoide.,1,1,5,3,15,"Reemplazar componentes internos como pistones, resortes o válvulas de asiento.",6M,5 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Fugas internas (pérdida de estanqueidad).,Ciclos de operación intensivos y Materiales de baja calidad o envejecimiento natural,1,1,3,3,9,Inspeccionar componentes para detectar desgaste temprano.,1D,5 min,Operador,LILA,,,,,,,
+Válvulas ,Movimiento ineficiente o atascos de la válvula.,Falta de lubricación o uso de lubricantes inadecuados.,1,1,3,3,9,Aplicar lubricante específico recomendados por el fabricante.,2S,10 min,Operador,LILA,,,,,,,
+Válvulas ,Deformación de componentes internos.,Exposición a presiones fuera del rango especificado.,1,1,3,3,9,Operar el sistema dentro de los límites de presión y temperatura establecidos.,1D,5 min,Operador,LILA,,,,,,,
+Válvulas ,Fallo total o parcial en el control del flujo.,Ciclos de trabajo más intensos de lo recomendado.,1,1,5,3,15,Instalar válvulas de alivio o reguladores.,6M,10 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Movimiento irregular o atascos.,"Aire comprimido contaminado con agua, aceite o partículas.",1,1,3,3,9,Purgar el sistema para eliminar agua y  contaminantes acumulado.,2S,10 min ,Operador,LILA,,,,,,,
+Válvulas ,Deterioro acelerado de componentes internos.,Corrosión interna debido a humedad no controlada.,1,1,5,3,15,Colocar filtros de aire y secadores en la línea de suministro de aire comprimido.,6M,60 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Aflojamiento de componentes.,Instalación en zonas con alta vibración sin soportes adecuados.,1,1,3,3,9,Inspeccionar y apretear tornillería de soportes. ,2S,10 min ,Operador,LILA,,,,,,,
+Válvulas ,Desplazamiento o desalineación de partes móviles.,Impactos externos durante el uso o el mantenimiento.,1,1,5,3,15,Colocar protecciones para evitar impactos accidentales,6M,10 min,Mecánico,PLAN,,,,,,,
+Válvulas ,Movimiento incompleto o inconsistente de los actuadores.,Pérdida de presión en el actuador.,1,1,3,3,9,Inspeccionar actuadores y asegurarse de que funcionen correctamente.,2S,10 min,Operador,LILA,,,,,,,
+Válvulas ,Dificultad para mantener posiciones.,Desgaste o fallo mecánico en cilindros o pistones.,1,1,3,3,9,Verificar que los actuadores estén bien alineados y ajustados,1S,10 min,Operador,LILA,,,,,,,
+Sprocket,Sprocket dañado,Desgaste,1,1,3,5,15,Inspeccione que no presente desgaste en los dientes,6M,60 min,Mecánico,PLAN,,,,,,,
+Sprocket,Sprocket dañado,Desgaste,1,1,3,5,15,Inspeccione que no presente juego con respecto a la flecha,6M,60 min,Mecánico,PLAN,,,,,,,
+Sprocket,Sprocket dañado,Desgaste,1,1,3,5,15,Lubrique el sprocket,3M,30 min,Mecánico,PLAN,,,,,,,
+Sprocket,Sprocket dañado,Desalieación de sprocket,3,1,3,5,45,Inspeccione que el sprocket se encuentre bien alienado al eje,3M,30 min,Mecánico,PLAN,,,,,,,
+Sprocket,Sprocket dañado,Corrosión,1,3,3,5,45,inspeccione que no exista humedad o productos que puedan oxidar el sprocket,6M,30 min,Mecánico,PLAN,,,,,,,
+Catarina,Catarina dañada,Desgaste,1,1,3,5,15,Inspeccione que no presente desgaste en los dientes,6M,60 min,Mecánico,PLAN,,,,,,,
+Catarina,Catarina dañada,Desgaste,1,1,3,5,15,Inspeccione que la catarina no presente fracturas en los dientes o en el nucleo,6M,60 min,Mecánico,PLAN,,,,,,,
+Catarina,Catarina dañada,Desalieación de catarina,3,1,3,5,45,Inspeccione que el sprocket se encuentre bien alienado al eje,3M,30 min,Mecánico,PLAN,,,,,,,
+Catarina,Catarina dañada,Desgaste,1,1,3,5,15,Reemplace la catarina,1A,60 min,Mecánico,PLAN,,,,,,,
+Banda de Lona,Banda dañada,Desgaste,1,1,3,1,3,"Inspeccione que la banda no se encuentre dañada, desgastada o rasgada",1S,30 min,Operador,LILA,,,,,,, 
+Banda de Lona,Exceso de suciedad,Ambiente,1,3,3,1,9,Limpie banda ,1S,30 min,Operador,LILA,,,,,,,
+Banda de Lona,Banda dañada,Fuera de posicion,1,1,3,5,15,Inspeccione que banda se encuentre bien alineada,1S,30 min,Operador,LILA,,,,,,,
+Banda de Lona,Banda dañada,Grapas ausentes,3,1,3,1,9,Inspeccione que no se encuentren grapas dañadas o ausentes,1S,30 min,Operador,LILA,,,,,,,
+Banda de tablillas,Banda dañada,Holgura,3,3,3,1,27,Inspeccione que banda de tablillas no se encuentren con holgura,6M,60 min,Mecánico,PLAN,,,,,,,
+Banda de tablillas,Banda dañada,Eslabones deformados,1,1,3,5,15,Inspeccione que banda de tablillas no se encuentren eslabones doblados,6M,60 min,Mecánico,PLAN,,,,,,,
+Banda de tablillas,Banda dañada,Fuera de posicion,1,1,3,5,15,Inspeccione que banda se encuentre bien alineada,1S,30 min,Operador,LILA,,,,,,,
+Banda de tablillas,Exceso de suciedad,Ambiente,1,3,3,1,9,Limpie banda ,1S,30 min,Operador,LILA,,,,,,,
+Banda Modular,Banda dañada,Desgaste,3,1,3,1,9,"Inspeccione que la banda no se encuentre dañada, desgastada o rasgada",1S,30 min,Operador,LILA,,,,,,,
+Banda Modular,Exceso de suciedad,Ambiente,1,3,3,1,9,Limpie banda ,1S,30 min,Operador,LILA,,,,,,,
+Banda Modular,Desalineacion,Desgaste,1,1,3,5,15,Inspeccione que banda se encuentre bien alineada,1S,30 min,Operador,LILA,,,,,,,
+Banda Modular,Baja tension,Desgaste,3,1,3,1,9,Inspecciones que la banda este tensada correctamente,1S,30 min,Operador,LILA,,,,,,,
+Motor,No se acciona motor,Des energizado ,1,1,1,5,5,Inspeccione que el interruptor de arranque y paro se encuentre energizado,1D,5 Min,Operador,LILA,,,,,,,
+Motor,No se acciona motor,Suciedad,1,1,3,5,15,"Inspeccione terminales que no se encuentren sulfatadas, corrija de ser necesario,",6M,5 min,Electrico,PLAN,,,,,,,
+Motor,No se acciona motor,Perdida de de continuidad,1,1,1,5,5,Inspeccione condiciones del cable de alimentación que no presente daños en el recubrimiento (roto),1M,5 Min,Operador,LILA,,,,,,,
+Motor,No se acciona motor,Des energizado ,1,1,5,1,5,"Inspeccione caja de conexiones del motor,  que no se encuentren terminales sueltas y sin aislante.",6M,5 min,Electrico,PLAN,,,,,,,
+Motor,Sobrecalentamiento,Voltaje bajo,1,1,1,1,1,"Inspeccione que no presente sobrecalentamiento, de ser necesario verifique lecturas de alimentación",6M,5 min,Electrico,PLAN,,,,,,,
+Motor,Sobrecalentamiento,Falta de ventilacion,1,1,1,5,5,"Inspeccione rejilla de la guarda del abanico que no se encuentre obstruida, corrija de ser necesario.",1M,5 Min,Operador,LILA,,,,,,,
+Motor,Sobrecalentamiento,Suciedad,1,1,1,5,5,Limpie superficie del motor,1M,5 Min,Operador,LILA,,,,,,,
+Motor,Vibracion de motor,Deformacion,1,1,3,1,3,Inspeccione que la flecha no presente oscilamiento y juego con respecto al eje de giro.,6M,5 min,Mecánico,PLAN,,,,,,,
+Motor,Vibracion de motor,Desgaste,1,1,3,1,3,Inspeccione que la flecha no presente desgaste en eje de giro y cuñero.,1A,45 min,Mecánico,PLAN,,,,,,,
+Motor,Vibracion de motor,Desalineado,1,1,3,5,15,"Inspeccione que el motor se encuentre fijo y alineado con respecto A. (POLEA, SPRCKET, REDUCTOR ETC.)",6M,5 min,Mecánico,PLAN,,,,,,,
+Motor,Vibracion de motor,Desalineado,1,1,3,5,15,Realice análisis de vibración al motor ,6M,5 min,Mecánico,PLAN,,,,,,,
+Motor,Rodamiento dañado,Desgaste,1,1,3,1,3,Remplace rodamientos del motor ,1A,45 min,Mecánico,PLAN,,,,,,,
+Motor,Rodamiento con juego,Desgaste,1,1,3,1,3,inspeccione que no presente desgaste las cajas de alojamiento del motor,1A,45 min,Mecánico,PLAN,,,,,,,
+Motor,Bobina abierto,Suciedad,1,1,3,1,3,Inspeccione condiciones de la bobina que no se encuentre abierto. (hilo de cobre roto) corrija si detecta daño.,1A,45 min,Mecánico,PLAN,,,,,,,
+Motor,Bobina abierto,Sobrecarga,1,1,3,1,3,Realice medición de la resistencia dieléctrica de las bobinas del estator del motor,6M,5 min,Electrico,PLAN,,,,,,,
+Reductor,Reductor con ruido,Perdida de viscocidad de aceite,1,1,3,5,15,Realice análisis de aceite del reductores  ,6M,5 min,Mecánico,PLAN,,,,,,,
+Reductor,Fuga de aceite,Tiempo de vida ,1,1,3,5,15,Inspeccione que no presenten fugas de aceite el reductor,1M,5 Min,Operador,LILA,,,,,,,
+Reductor,Fuga de aceite,Tiempo de vida ,1,1,3,1,3,Remplace retenes y sellos del reductor,2A,40 min,Mecánico,PLAN,,,,,,,
+Reductor,Sobrecalentamiento,Bajo nivel de aceite,1,1,3,5,15,"Inspeccione que no presente sobrecalentamiento, de ser necesario verifique niveles de aceite",6M,5 min,Mecánico,PLAN,,,,,,,
+Reductor,Sobrecalentamiento,Suciedad,1,1,1,5,5,Limpie superficie del reductor,1M,5 Min,Operador,LILA,,,,,,,
+Reductor,Vibracion de reductor,Deformacion,1,1,3,5,15,Inspeccione que la flecha de entrada y salida no presente oscilamiento y juego con respecto al eje de giro.,6M,5 min,Mecánico,PLAN,,,,,,,
+Reductor,Vibracion de reductor,Desgaste,1,1,3,1,3,Inspeccione que la flecha no presente desgaste en eje de giro y cuñero.,2A,40 min,Mecánico,PLAN,,,,,,,
+Reductor,Vibracion de reductor,Desalineado,1,1,3,5,15,"Inspeccione que el reductor se encuentre fijo y alineado con respecto A. (POLEA, SPRCKET, MOTOR ETC.)",6M,5 min,Mecánico,PLAN,,,,,,,
+Reductor,Vibracion de reductor,Desalineado,1,1,3,5,15,Realice análisis de vibración al reductor ,6M,5 min,Mecánico,PLAN,,,,,,,
+Reductor,Rodamiento dañado,Desgaste,1,1,3,1,3,Remplace rodamientos del reductor  ,2A,40 min,Mecánico,PLAN,,,,,,,
+Reductor,Rodamiento con juego,Desgaste,1,1,3,1,3,Inspeccione que no presente desgaste las cajas de alojamiento de rodamientos.,2A,40 min,Mecánico,PLAN,,,,,,,
+Reductor,No hay traccion,Desgaste,1,1,3,1,3,Inpeccione condiciones de la corona que no presente desgaste en dientes y eje de giro. Remplace de ser necesario,2A,40 min,Mecánico,PLAN,,,,,,,
+Reductor,No hay traccion,Desgaste,1,1,3,1,3,Inpeccione condiciones del sin fin que no presente desgaste en dientes y eje de giro. Remplace de ser necesario,2A,40 min,Mecánico,PLAN,,,,,,,
+Chumacera,"Ruido anormal
+(chumaceras visibles)",Chumacera dañada,1,1,3,1,3,"Inspeccione las condiciones de la chumacera, inspeccione que no presente ruidos, vibraciones o desgaste.",1M,10min,Operador,LILA,,,,,,,
+Chumacera,"Corrosión 
+(chumacera no visible)","Contacto con agentes corrosivos, exposición al agua",1,1,3,5,15,"Inspeccione la chumacera, si existen signos de daño de corrosión, reemplace la chumacera.",6M,30 min,Mecánico,PLAN,,,,,,,
+Chumacera,Fatiga del material,Sobrecarga o desalineación,1,1,3,5,15,Inspeccione la chumacera en busca de signos de desgaste o daño.,1M,10min,Operador,LILA,,,,,,,
+Chumacera,Desalineación,Desgaste de las piezas que dan soporte,1,1,3,5,15,Inspeccione que exista una correcta alineación de la chumacera y el eje; ajuste en caso de ser necesario.,1M,30 min,Mecánico,PLAN,,,,,,,
+Chumacera,Vibración,"Desbalance del rotor o del eje, desajuste en las conexiones",1,1,3,5,15,Inspeccione si exsiten ruidos o vibraciones anormales; ajuste las conexiones en caso de detectar componentes flojos.,1M,30min,Operador,LILA,,,,,,,
+Chumacera,Falta de lubricación,Fugas,1,1,3,5,15,Lubrique la chumacera con el lubricante indicado por fabricante.,2S,10min,Operador,LILA,,,,,,,
+Banda,Banda desgastada,Tiempo de vida ,1,1,5,5,25,Inspeccione que la banda no presente daños,1M,5 min,Operador,LILA,,,,,,,
+Banda,Suciedad en banda,Exceso de suciedad,1,1,5,5,25,"Limpie la banda con ""revisar con el cliente""",2S,10 min,Operador,LILA,,,,,,,
+Banda,Banda con elongación,Tiempo de vida ,1,1,5,5,25,Inspeccione la elongación de la banda,1M,10 min,Operador,LILA,,,,,,,
+Polea,Polea dañada (Si es visible o está al alcance del operador),Desgaste ,1,1,5,5,25,Inspeccione visualmente que no presente desgaste en los dientes.,1M,30 min,Operador,LILA,,,,,,,
+Polea,Polea con desgaste,Desgaste ,1,1,5,5,25,"Inspeccione que la polea no presente juego con respecto a la flecha, inspeccione la cuña y cuñero que no presenten desgaste",6M,60 min,Mecánico,PLAN,,,,,,,
+Rodamiento,Rodamiento dañado,Tiempo de vida ,1,1,5,5,25,Inspeccione que los rodamientos no se encuentren dañados o desgastados,2S,5 min,Operador,LILA,,,,,,,
+Rodamiento,Rodamiento desgastado,Falta de lubricación,1,1,1,1,1,Lubrique el rodamiento con grasa ( 2 a 3 bombazos),2S,5 min,Operador,LILA,,,,,,,
+Rodamiento,Rodamiento dañado,Tiempo de vida ,1,1,1,3,3,Reemplace rodamiento dañado,1A,30 min,Operador,LILA,,,,,,,
+Rodamiento,Rodamiento desgastado,Falta de limpieza,1,1,1,1,1,Limpie el rodamiento retirando los excesos de grasa y polvo,2S,5 min,Operador,LILA,,,,,,,
+Cadena de rodillos,Cadena desgastada,Tiempo de vida ,1,1,1,3,3,Inspeccione que la cadena no presente daños o eslabones sueltos,2S,5 min,Operador,LILA,,,,,,,
+Cadena de rodillos,Cadena desgastada,Tiempo de vida ,1,1,1,3,3,Limpie la cadena de rodillos(indique los insumos a utilizar),2S,5 min,Operador,LILA,,,,,,,
+Cadena de rodillos,Cadena desgastada,Desgaste,1,1,1,3,3,Ajuste la cadena con los rodillos tensores hasta llegar a la tensión adecuada,1M,20 min,Mecánico,PLAN,,,,,,,
+Cadena de rodillos,Cadena desgastada,Tiempo de vida ,1,1,3,3,9,Reemplace la cadena de rodillos,2A,30 min,Mecánico,PLAN,,,,,,,
+Cadena de rodillos,Cadena desgastada,Falta de lubricación,1,1,1,3,3,Lubrique la cadena de rodillos,2S,5 min,Operador,LILA,,,,,,,
