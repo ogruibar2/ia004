@@ -2,53 +2,77 @@
         <!DOCTYPE html>
         <html>
         <head>
-            <title>System Metrics Dashboard</title>
+            <title>Dashboard de Procesamiento</title>
             <style>
                 body { font-family: Arial, sans-serif; margin: 20px; }
-                .metric-card {
-                    background: #f5f5f5;
-                    border-radius: 8px;
-                    padding: 15px;
-                    margin: 10px;
-                    display: inline-block;
-                    width: 200px;
-                    text-align: center;
-                }
-                .metric-value { font-size: 24px; font-weight: bold; color: #2196F3; }
-                .metric-label { color: #666; }
+                .metric { background: #f5f5f5; padding: 15px; margin: 10px 0; border-radius: 5px; }
+                .metric h3 { margin: 0 0 10px 0; }
+                .missing-elements { margin-top: 20px; }
+                .missing-element { background: #fff3f3; padding: 10px; margin: 5px 0; border-left: 3px solid #ff4444; }
+                .timestamp { color: #666; font-size: 0.9em; }
             </style>
         </head>
         <body>
-            <h1>System Metrics Dashboard</h1>
+            <h1>Dashboard de Procesamiento</h1>
             
-            <div class="metric-card">
-                <div class="metric-value">0</div>
-                <div class="metric-label">Total Predictions</div>
+            <div class="metric">
+                <h3>Métricas Generales</h3>
+                <p>Total de Predicciones: 6</p>
+                <p>Archivos Procesados: 13</p>
+                <p>Predicciones Procesadas: 329</p>
+                <p>Tiempo Promedio de Procesamiento: 0.057s</p>
+                <p>Última Ejecución: 2025-01-04T12:27:29.179593</p>
+                <p>Uso de Memoria: 215.7 MB</p>
             </div>
             
-            <div class="metric-card">
-                <div class="metric-value">8</div>
-                <div class="metric-label">Files Processed</div>
-            </div>
+            <div class="metric missing-elements">
+                <h3>Elementos Faltantes en Entrenamiento (5)</h3>
+                
+                <div class="missing-element">
+                    <strong>Ventosa</strong><br>
+                    <span class="timestamp">
+                        Primer avistamiento: 2025-01-04T11:49:18.308490<br>
+                        Último avistamiento: 2025-01-04T12:27:28.568671<br>
+                        Veces encontrado: 7
+                    </span>
+                </div>
             
-            <div class="metric-card">
-                <div class="metric-value">0s</div>
-                <div class="metric-label">Avg Processing Time</div>
-            </div>
+                <div class="missing-element">
+                    <strong>Rodillo</strong><br>
+                    <span class="timestamp">
+                        Primer avistamiento: 2025-01-04T11:49:18.308490<br>
+                        Último avistamiento: 2025-01-04T12:27:28.568671<br>
+                        Veces encontrado: 7
+                    </span>
+                </div>
             
-            <div class="metric-card">
-                <div class="metric-value">4100.0%</div>
-                <div class="metric-label">Error Rate</div>
-            </div>
+                <div class="missing-element">
+                    <strong>Buje</strong><br>
+                    <span class="timestamp">
+                        Primer avistamiento: 2025-01-04T11:51:45.935322<br>
+                        Último avistamiento: 2025-01-04T12:27:28.568671<br>
+                        Veces encontrado: 6
+                    </span>
+                </div>
             
-            <div class="metric-card">
-                <div class="metric-value">140.86 MB</div>
-                <div class="metric-label">Memory Usage</div>
-            </div>
+                <div class="missing-element">
+                    <strong>Gebinete Electrico</strong><br>
+                    <span class="timestamp">
+                        Primer avistamiento: 2025-01-04T11:51:45.935322<br>
+                        Último avistamiento: 2025-01-04T12:27:28.568671<br>
+                        Veces encontrado: 6
+                    </span>
+                </div>
             
-            <div class="metric-card">
-                <div class="metric-value">2025-01-04</div>
-                <div class="metric-label">Last Execution</div>
+                <div class="missing-element">
+                    <strong>Motorreductor</strong><br>
+                    <span class="timestamp">
+                        Primer avistamiento: 2025-01-04T11:55:05.454126<br>
+                        Último avistamiento: 2025-01-04T12:27:28.568671<br>
+                        Veces encontrado: 5
+                    </span>
+                </div>
+            
             </div>
         </body>
         </html>

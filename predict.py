@@ -4,6 +4,7 @@ import os
 import glob
 import shutil
 import time
+from tkinter import messagebox
 from logger import system_logger
 
 def load_models():
@@ -17,10 +18,39 @@ def load_models():
         system_logger.log_error(e, "Error loading models and encoders")
         raise
 
+def validate_elementos(df_input):
+    """Validar que los elementos existan en el archivo de entrenamiento"""
+    try:
+        df_train = pd.read_csv('entrenador/entrenador001.csv')
+        elementos_train = set(df_train['Elemento'].unique())
+        elementos_input = set(df_input['Elemento'].unique())
+        
+        elementos_faltantes = elementos_input - elementos_train
+        
+        if elementos_faltantes:
+            mensaje = "Los siguientes elementos no existen en el archivo de entrenamiento:\n"
+            mensaje += "\n".join(sorted(elementos_faltantes))
+            system_logger.logger.warning(mensaje)
+            return False, mensaje, elementos_faltantes
+        
+        return True, "", set()
+    except Exception as e:
+        system_logger.log_error(e, "Error validando elementos")
+        raise
+
 def predict_single(elemento, models, encoders):
     """Hacer predicción para un solo elemento"""
     start_time = time.time()
     try:
+        # Verificar si el elemento existe en el entrenamiento
+        df_train = pd.read_csv('entrenador/entrenador001.csv')
+        if elemento not in df_train['Elemento'].unique():
+            # Retornar diccionario con valores vacíos para todas las columnas
+            predictions = {column: "" for column in models.keys() if column != 'Elemento'}
+            execution_time = time.time() - start_time
+            system_logger.logger.warning(f"Elemento no encontrado en entrenamiento: {elemento}")
+            return predictions
+            
         elemento_encoded = encoders['input'].transform([elemento])
         
         predictions = {}
@@ -99,57 +129,64 @@ def main():
     try:
         # Obtener archivo de entrada
         input_file = get_input_file()
-        input_filename = os.path.basename(input_file)
-        system_logger.logger.info(f"Processing file: entrada/{input_filename}")
-        
-        # Cargar el archivo de entrada
         df_input = read_input_file(input_file)
-        df_input = df_input.dropna(subset=['Elemento'])
+        input_filename = os.path.basename(input_file)
+        
+        # Validar elementos antes de procesar
+        valid, mensaje, elementos_faltantes = validate_elementos(df_input)
+        if not valid:
+            try:
+                messagebox.showwarning("Elementos No Encontrados", mensaje)
+            except:
+                system_logger.logger.warning(mensaje)
+            # Registrar elementos faltantes para el dashboard
+            system_logger.log_missing_elements(elementos_faltantes)
         
         # Cargar modelos y encoders
         models, encoders = load_models()
         
-        # Generar predicciones
-        all_predictions = []
-        prediction_count = 0
-        
-        for elemento in df_input['Elemento']:
-            # Obtener combinaciones existentes del entrenamiento
+        # Realizar predicciones
+        results = []
+        for _, row in df_input.iterrows():
+            elemento = row['Elemento']
+            # Obtener todas las combinaciones existentes del elemento en el entrenamiento
             combinations = get_training_combinations(elemento)
             
             if combinations:
-                # Si existen combinaciones en el entrenamiento, usarlas
-                all_predictions.extend(combinations)
-                prediction_count += len(combinations)
+                # Si existen combinaciones en el entrenamiento, usar todas
+                for combination in combinations:
+                    results.append(combination)
             else:
-                # Si no existen, usar el modelo para predecir
-                pred = predict_single(elemento, models, encoders)
-                pred['Elemento'] = elemento
-                all_predictions.append(pred)
-                prediction_count += 1
+                # Si no existe en el entrenamiento, generar una fila con campos vacíos
+                predictions = {column: "" for column in models.keys() if column != 'Elemento'}
+                predictions['Elemento'] = elemento
+                results.append(predictions)
         
-        # Crear DataFrame con predicciones
-        df_predictions = pd.DataFrame(all_predictions)
+        # Crear DataFrame con resultados
+        df_predictions = pd.DataFrame(results)
         
         # Reordenar columnas para mantener el mismo orden que el archivo original
-        column_order = df_input.columns.tolist()
-        df_predictions = df_predictions[column_order]
+        if not df_predictions.empty:
+            column_order = ['Elemento'] + [col for col in df_input.columns if col != 'Elemento']
+            df_predictions = df_predictions[column_order]
         
-        # Guardar predicciones usando el mismo nombre del archivo de entrada
-        output_path = os.path.join('salida', input_filename)
-        save_predictions(df_predictions, output_path)
+        # Guardar predicciones
+        output_file = os.path.join('salida', os.path.basename(input_file))
+        save_predictions(df_predictions, output_file)
+        
+        # Registrar métricas
+        total_lines = len(df_predictions)
+        system_logger.log_file_processed(input_filename, len(df_input), total_lines)
         
         # Mover archivo de entrada a backup
         move_to_backup(input_file)
         
-        # Log completion
-        execution_time = time.time() - start_time
-        system_logger.log_file_processed(input_filename, prediction_count)
-        system_logger.logger.info(f"Total execution time: {execution_time:.2f} seconds")
-        
-        # Generate updated dashboard
+        # Generar dashboard actualizado
         dashboard_path = system_logger.generate_html_dashboard()
-        system_logger.logger.info(f"Dashboard updated at: {dashboard_path}")
+        system_logger.logger.info(f"Dashboard actualizado en: {dashboard_path}")
+        
+        execution_time = time.time() - start_time
+        system_logger.logger.info(f"Total execution time: {execution_time:.2f} seconds")
         
     except Exception as e:
         system_logger.log_error(e, "Error in main execution")

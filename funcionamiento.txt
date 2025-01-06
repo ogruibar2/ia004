@@ -1,0 +1,88 @@
+GUÍA DE FUNCIONAMIENTO DEL SISTEMA DE PROCESAMIENTO DE ARCHIVOS
+==================================================
+
+¿Qué hace este sistema?
+----------------------
+Este sistema te ayuda a procesar archivos CSV y Excel (xlsx) utilizando un modelo de predicción entrenado. El sistema toma los elementos de tu archivo y busca coincidencias en una base de datos de entrenamiento (entrenador001.csv) para generar predicciones.
+
+Estructura de Carpetas
+---------------------
+El sistema utiliza las siguientes carpetas:
+- entrada/: Aquí debes colocar los archivos que quieres procesar
+- salida/: Aquí encontrarás los archivos procesados
+- backup/: Los archivos originales se mueven aquí después de ser procesados
+- logs/: Contiene registros del sistema y el dashboard
+- modelos/: Contiene los modelos de predicción
+
+Cómo Usar el Sistema
+-------------------
+1. Coloca tu archivo CSV o Excel en la carpeta "entrada"
+2. Abre la aplicación
+3. Haz clic en "Seleccionar Archivos" para elegir los archivos a procesar
+4. Haz clic en "Procesar Archivos" para iniciar el procesamiento
+5. El sistema procesará los archivos y:
+   - Mostrará advertencias si hay elementos no encontrados
+   - Generará un archivo de resultados en la carpeta "salida"
+   - Moverá el archivo original a la carpeta "backup"
+
+Visualización de Resultados
+--------------------------
+1. Los archivos procesados aparecerán en la carpeta "salida"
+2. Puedes ver una vista previa de los archivos en la interfaz
+3. Usa el botón "Descargar Archivo Seleccionado" para guardar los resultados
+4. El dashboard (en la carpeta logs) muestra:
+   - Número total de predicciones realizadas
+   - Cantidad de archivos procesados
+   - Tiempo promedio de procesamiento
+   - Lista de elementos no encontrados en el entrenamiento
+
+Manejo de Elementos No Encontrados
+--------------------------------
+Cuando el sistema encuentra un elemento que no existe en el archivo de entrenamiento:
+1. Te mostrará una advertencia con la lista de elementos no encontrados
+2. Procesará el archivo de todas formas
+3. Los elementos no encontrados aparecerán en el resultado con campos vacíos
+4. El dashboard mantendrá un registro histórico de estos elementos
+
+Características Especiales
+-------------------------
+1. Múltiples Predicciones:
+   - Si un elemento aparece varias veces en el archivo de entrenamiento
+   - El sistema generará el mismo número de predicciones en el archivo de salida
+
+2. Dashboard Interactivo:
+   - Muestra estadísticas en tiempo real
+   - Registra elementos no encontrados
+   - Permite seguimiento histórico de procesamiento
+
+3. Respaldo Automático:
+   - Todos los archivos originales se guardan en la carpeta "backup"
+   - Nunca se pierden los datos originales
+
+Solución de Problemas Comunes
+----------------------------
+1. "No hay archivos para procesar":
+   - Asegúrate de que hay archivos en la carpeta "entrada"
+   - Verifica que los archivos sean CSV o Excel (xlsx)
+
+2. "Elementos no encontrados":
+   - Es normal si tienes elementos nuevos
+   - El sistema procesará el archivo de todas formas
+   - Los elementos no encontrados tendrán campos vacíos
+
+3. "Error al abrir archivo":
+   - Asegúrate de que el archivo no esté abierto en Excel
+   - Verifica que el archivo no esté dañado
+
+Recomendaciones
+--------------
+1. Revisa el dashboard regularmente para ver elementos no encontrados
+2. Haz copias de seguridad periódicas de la carpeta "backup"
+3. Mantén el archivo entrenador001.csv actualizado con los elementos más recientes
+4. Cierra los archivos Excel antes de procesarlos
+
+Para Más Ayuda
+-------------
+- Usa el menú "Help" en la aplicación
+- Revisa los logs en la carpeta "logs"
+- Consulta el dashboard para ver estadísticas detalladas
