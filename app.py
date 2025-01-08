@@ -10,18 +10,15 @@ import webbrowser
 from logger import system_logger
 from pathlib import Path
 from config import Config
-from templates import TemplateManager
 
 class FileProcessorApp:
     def __init__(self, root):
         self.root = root
         self.config = Config()
         self.selected_files = []
-        self.template_manager = TemplateManager()
-        self.current_template = 'default'
         
         # Cargar configuración
-        self.root.title("Procesador de Archivos CSV/XLSX")
+        self.root.title("Procesador de Archivos AMEF")
         self.root.geometry(self.config.get('window_size'))
         
         # Inicializar tema
@@ -38,20 +35,6 @@ class FileProcessorApp:
         help_menu.add_command(label="About", command=self.show_about)
         help_menu.add_command(label="View Logs", command=self.show_logs)
         help_menu.add_command(label="View Dashboard", command=self.show_dashboard)
-        
-        # Menú View
-        view_menu = tk.Menu(self.menubar, tearoff=0)
-        self.menubar.add_cascade(label="View", menu=view_menu)
-        view_menu.add_command(label="Cambiar Tema", command=self.toggle_theme)
-        
-        # Menú Templates
-        templates_menu = tk.Menu(self.menubar, tearoff=0)
-        self.menubar.add_cascade(label="Plantillas", menu=templates_menu)
-        templates_menu.add_command(label="Gestionar Plantillas", command=self.show_template_manager)
-        templates_menu.add_separator()
-        
-        # Agregar plantillas existentes al menú
-        self.update_templates_menu(templates_menu)
         
         # Menú de exportación
         export_menu = tk.Menu(self.menubar, tearoff=0)
@@ -246,209 +229,6 @@ class FileProcessorApp:
         self.config.set('theme', self.current_theme)
         self.apply_theme()
 
-    def update_templates_menu(self, menu):
-        """Actualizar menú de plantillas"""
-        # Limpiar menú existente
-        menu.delete(2, tk.END)  # Mantener "Gestionar Plantillas" y separator
-        
-        # Agregar plantillas
-        for template_id, template_name in self.template_manager.get_template_list():
-            menu.add_radiobutton(
-                label=template_name,
-                value=template_id,
-                variable=tk.StringVar(value=self.current_template),
-                command=lambda tid=template_id: self.select_template(tid)
-            )
-
-    def select_template(self, template_id):
-        """Seleccionar plantilla activa"""
-        self.current_template = template_id
-        template = self.template_manager.get_template(template_id)
-        messagebox.showinfo(
-            "Plantilla Seleccionada",
-            f"Plantilla: {template['name']}\n\n"
-            f"Descripción: {template['description']}\n\n"
-            f"Columnas requeridas: {', '.join(template['required_columns'])}"
-        )
-
-    def show_template_manager(self):
-        """Mostrar ventana de gestión de plantillas"""
-        template_window = tk.Toplevel(self.root)
-        template_window.title("Gestor de Plantillas")
-        template_window.geometry("600x400")
-        
-        # Frame principal
-        main_frame = ttk.Frame(template_window, padding="10")
-        main_frame.pack(fill='both', expand=True)
-        
-        # Lista de plantillas
-        templates_frame = ttk.LabelFrame(main_frame, text="Plantillas Disponibles", padding="5")
-        templates_frame.pack(fill='both', expand=True, pady=(0, 10))
-        
-        templates_list = tk.Listbox(templates_frame)
-        templates_list.pack(side='left', fill='both', expand=True)
-        
-        scrollbar = ttk.Scrollbar(templates_frame, orient="vertical", command=templates_list.yview)
-        scrollbar.pack(side='right', fill='y')
-        templates_list.config(yscrollcommand=scrollbar.set)
-        
-        # Cargar plantillas
-        for template_id, template_name in self.template_manager.get_template_list():
-            templates_list.insert(tk.END, template_name)
-        
-        # Frame para botones
-        button_frame = ttk.Frame(main_frame)
-        button_frame.pack(fill='x', pady=5)
-        
-        # Botones
-        ttk.Button(button_frame, text="Nueva Plantilla", 
-                  command=lambda: self.show_template_editor(template_window)).pack(side='left', padx=5)
-        ttk.Button(button_frame, text="Editar", 
-                  command=lambda: self.edit_template(template_window, templates_list.get(tk.ACTIVE))).pack(side='left', padx=5)
-        ttk.Button(button_frame, text="Cerrar", 
-                  command=template_window.destroy).pack(side='right', padx=5)
-
-    def show_template_editor(self, parent, template=None):
-        """Mostrar editor de plantillas"""
-        editor_window = tk.Toplevel(parent)
-        editor_window.title("Editor de Plantilla")
-        editor_window.geometry("500x600")
-        
-        # Frame principal
-        frame = ttk.Frame(editor_window, padding="10")
-        frame.pack(fill='both', expand=True)
-        
-        # Campos del formulario
-        ttk.Label(frame, text="Nombre:").pack(anchor='w', pady=(0, 5))
-        name_entry = ttk.Entry(frame, width=50)
-        name_entry.pack(fill='x', pady=(0, 10))
-        
-        ttk.Label(frame, text="Descripción:").pack(anchor='w', pady=(0, 5))
-        desc_text = tk.Text(frame, height=3)
-        desc_text.pack(fill='x', pady=(0, 10))
-        
-        ttk.Label(frame, text="Columnas Requeridas (una por línea):").pack(anchor='w', pady=(0, 5))
-        req_cols_text = tk.Text(frame, height=5)
-        req_cols_text.pack(fill='x', pady=(0, 10))
-        
-        ttk.Label(frame, text="Columnas Opcionales (una por línea):").pack(anchor='w', pady=(0, 5))
-        opt_cols_text = tk.Text(frame, height=5)
-        opt_cols_text.pack(fill='x', pady=(0, 10))
-        
-        # Si estamos editando una plantilla existente
-        if template:
-            template_data = self.template_manager.get_template(template)
-            name_entry.insert(0, template_data['name'])
-            desc_text.insert('1.0', template_data['description'])
-            req_cols_text.insert('1.0', '\n'.join(template_data['required_columns']))
-            opt_cols_text.insert('1.0', '\n'.join(template_data['optional_columns']))
-        
-        # Botones
-        button_frame = ttk.Frame(frame)
-        button_frame.pack(fill='x', pady=(10, 0))
-        
-        def save_template():
-            name = name_entry.get().strip()
-            description = desc_text.get('1.0', tk.END).strip()
-            required_columns = [col.strip() for col in req_cols_text.get('1.0', tk.END).split('\n') if col.strip()]
-            optional_columns = [col.strip() for col in opt_cols_text.get('1.0', tk.END).split('\n') if col.strip()]
-            
-            try:
-                self.template_manager.add_template(name, description, required_columns, optional_columns)
-                messagebox.showinfo("Éxito", "Plantilla guardada exitosamente")
-                editor_window.destroy()
-                self.update_templates_menu(self.menubar.winfo_children()[2])  # Actualizar menú de plantillas
-            except Exception as e:
-                messagebox.showerror("Error", f"Error al guardar plantilla: {str(e)}")
-        
-        ttk.Button(button_frame, text="Guardar", command=save_template).pack(side='left', padx=5)
-        ttk.Button(button_frame, text="Cancelar", command=editor_window.destroy).pack(side='right', padx=5)
-
-    def edit_template(self, parent, template_name):
-        """Editar plantilla existente"""
-        self.show_template_editor(parent, template_name)
-
-    def show_preview(self, filepath):
-        try:
-            # Limpiar vista previa actual
-            for item in self.preview_tree.get_children():
-                self.preview_tree.delete(item)
-            
-            # Leer archivo según su extensión
-            if filepath.endswith('.csv'):
-                df = pd.read_csv(filepath, nrows=100)  # Limitar a 100 filas para rendimiento
-            elif filepath.endswith('.xlsx'):
-                df = pd.read_excel(filepath, nrows=100)
-            else:
-                return
-            
-            # Configurar columnas
-            self.preview_tree['columns'] = list(df.columns)
-            for col in df.columns:
-                self.preview_tree.heading(col, text=col)
-                self.preview_tree.column(col, width=100)
-            
-            # Insertar datos
-            for idx, row in df.iterrows():
-                self.preview_tree.insert('', 'end', values=list(row))
-                
-        except Exception as e:
-            system_logger.log_error(e, f"Error showing preview for file: {filepath}")
-            messagebox.showerror("Error", f"Error al mostrar vista previa: {str(e)}")
-
-    def on_file_select(self, event):
-        widget = event.widget
-        selection = widget.curselection()
-        
-        if selection:
-            filename = widget.get(selection[0])
-            if widget == self.entrada_listbox:
-                filepath = os.path.join('entrada', filename)
-            else:
-                filepath = os.path.join('salida', filename)
-            
-            self.show_preview(filepath)
-
-    def process_files_with_progress(self):
-        """Procesar múltiples archivos con barra de progreso"""
-        def update_progress(value):
-            self.progress_var.set(value)
-            self.root.update_idletasks()
-
-        def run_process():
-            try:
-                total_files = len(os.listdir('entrada'))
-                if total_files == 0:
-                    messagebox.showwarning("Advertencia", "No hay archivos para procesar")
-                    return
-                
-                for i, filename in enumerate(os.listdir('entrada')):
-                    if filename.endswith(('.csv', '.xlsx')):
-                        filepath = os.path.join('entrada', filename)
-                        progress = (i / total_files) * 100
-                        update_progress(progress)
-                        
-                        try:
-                            # Validar archivo contra la plantilla actual
-                            self.template_manager.validate_file(filepath, self.current_template)
-                            # Procesar archivo
-                            predict.main()
-                        except ValueError as e:
-                            messagebox.showerror("Error de Validación", str(e))
-                            return
-                
-                update_progress(100)
-                messagebox.showinfo("Éxito", f"{total_files} archivos procesados exitosamente")
-                self.update_file_lists()
-            except Exception as e:
-                system_logger.log_error(e, "Error processing files")
-                messagebox.showerror("Error", f"Error al procesar archivos: {str(e)}")
-            finally:
-                update_progress(0)
-
-        thread = threading.Thread(target=run_process)
-        thread.start()
-
     def show_about(self):
         about_window = tk.Toplevel(self.root)
         about_window.title("About")
@@ -478,7 +258,7 @@ class FileProcessorApp:
         version_label.pack(pady=(0, 20))
         
         # Descripción
-        description = "Procesador de archivos CSV y XLSX\nDesarrollado por Inmaad 2024"
+        description = "Procesador de archivos AMEF\nDesarrollado por Inmaad 2024"
         desc_label = ttk.Label(frame, text=description, justify=tk.CENTER)
         desc_label.pack(pady=(0, 20))
         
@@ -609,6 +389,85 @@ class FileProcessorApp:
         """Guardar configuración antes de cerrar"""
         self.config.set('window_size', self.root.geometry())
         self.root.destroy()
+
+    def show_preview(self, filepath):
+        try:
+            # Limpiar vista previa actual
+            for item in self.preview_tree.get_children():
+                self.preview_tree.delete(item)
+            
+            # Leer archivo según su extensión
+            if filepath.endswith('.csv'):
+                df = pd.read_csv(filepath, nrows=100)  # Limitar a 100 filas para rendimiento
+            elif filepath.endswith('.xlsx'):
+                df = pd.read_excel(filepath, nrows=100)
+            else:
+                return
+            
+            # Configurar columnas
+            self.preview_tree['columns'] = list(df.columns)
+            for col in df.columns:
+                self.preview_tree.heading(col, text=col)
+                self.preview_tree.column(col, width=100)
+            
+            # Insertar datos
+            for idx, row in df.iterrows():
+                self.preview_tree.insert('', 'end', values=list(row))
+                
+        except Exception as e:
+            system_logger.log_error(e, f"Error showing preview for file: {filepath}")
+            messagebox.showerror("Error", f"Error al mostrar vista previa: {str(e)}")
+
+    def on_file_select(self, event):
+        widget = event.widget
+        selection = widget.curselection()
+        
+        if selection:
+            filename = widget.get(selection[0])
+            if widget == self.entrada_listbox:
+                filepath = os.path.join('entrada', filename)
+            else:
+                filepath = os.path.join('salida', filename)
+            
+            self.show_preview(filepath)
+
+    def process_files_with_progress(self):
+        """Procesar múltiples archivos con barra de progreso"""
+        def update_progress(value):
+            self.progress_var.set(value)
+            self.root.update_idletasks()
+
+        def run_process():
+            try:
+                total_files = len(os.listdir('entrada'))
+                if total_files == 0:
+                    messagebox.showwarning("Advertencia", "No hay archivos para procesar")
+                    return
+                
+                for i, filename in enumerate(os.listdir('entrada')):
+                    if filename.endswith(('.csv', '.xlsx')):
+                        filepath = os.path.join('entrada', filename)
+                        progress = (i / total_files) * 100
+                        update_progress(progress)
+                        
+                        try:
+                            # Procesar archivo
+                            predict.main()
+                        except ValueError as e:
+                            messagebox.showerror("Error de Validación", str(e))
+                            return
+                
+                update_progress(100)
+                messagebox.showinfo("Éxito", f"{total_files} archivos procesados exitosamente")
+                self.update_file_lists()
+            except Exception as e:
+                system_logger.log_error(e, "Error processing files")
+                messagebox.showerror("Error", f"Error al procesar archivos: {str(e)}")
+            finally:
+                update_progress(0)
+
+        thread = threading.Thread(target=run_process)
+        thread.start()
 
 if __name__ == "__main__":
     root = tk.Tk()

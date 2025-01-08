@@ -1,6 +1,6 @@
 {
     "total_predictions": 6,
-    "total_files_processed": 13,
+    "total_files_processed": 14,
     "processing_times": [
         0.07145214080810547,
         0.05500650405883789,
@@ -10,7 +10,7 @@
         0.053323984146118164
     ],
     "error_count": 47,
-    "last_execution": "2025-01-04T12:27:29.179593",
+    "last_execution": "2025-01-06T16:21:36.985510",
     "model_usage": {},
     "memory_usage": [
         {
@@ -140,11 +140,16 @@
         {
             "timestamp": "2025-01-04T12:27:25.222741",
             "memory_mb": 215.703125
+        },
+        {
+            "timestamp": "2025-01-06T16:21:32.296414",
+            "memory_mb": 94.42578125
         }
     ],
     "lines_per_file": [
         47,
         47,
+        235,
         235
     ]
 }

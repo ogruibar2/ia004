@@ -1,0 +1,33 @@
+Instrucciones para generar el ejecutable con PyInstaller
+
+1. Requisitos previos:
+   - Tener instalado Python
+   - Tener instalado PyInstaller (pip install pyinstaller)
+   - Tener todas las dependencias del proyecto instaladas (sklearn, pandas, numpy, etc.)
+
+2. Comando para generar el ejecutable:
+   pyinstaller --hidden-import sklearn.ensemble --hidden-import sklearn.ensemble._forest --hidden-import sklearn.tree --hidden-import sklearn.tree._tree --hidden-import sklearn --hidden-import sklearn.neighbors --hidden-import sklearn.preprocessing --hidden-import sklearn.utils --icon=proceso.ico --onefile app.py
+
+3. Explicación de los parámetros:
+   --hidden-import: Incluye explícitamente módulos que PyInstaller no detecta automáticamente
+   --icon: Establece el ícono del ejecutable
+   --onefile: Genera un único archivo ejecutable
+
+4. Módulos importantes a incluir:
+   - sklearn.ensemble
+   - sklearn.ensemble._forest
+   - sklearn.tree
+   - sklearn.tree._tree
+   - sklearn.neighbors
+   - sklearn.preprocessing
+   - sklearn.utils
+
+5. Ubicación del ejecutable:
+   - El ejecutable se generará en la carpeta 'dist'
+   - El archivo se llamará 'app.exe'
+
+Notas importantes:
+- Asegúrate de estar en el directorio correcto del proyecto antes de ejecutar el comando
+- Verifica que el archivo 'proceso.ico' exista en el directorio
+- El proceso puede tardar varios minutos
+- Si hay errores de módulos faltantes, agrégalos usando --hidden-import
